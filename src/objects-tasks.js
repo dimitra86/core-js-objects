@@ -163,7 +163,7 @@ function sellTickets(queue) {
   let sum = 0;
   let result = 0;
   // throw new Error('Not implemented');
-  queue.forEach(function (item, index, array) {
+  queue.forEach(function x(item, index, array) {
     // ... делать что-то с item
     sum += item;
     // console.log(sum)
