@@ -19,8 +19,16 @@
  */
 function shallowCopy(obj) {
   // return { ...obj };
-  const objNew = obj;
-  return { ...objNew };
+  // const objNew = obj;
+  // return { ...objNew };
+  // const objNew = JSON.parse(JSON.stringify(obj));
+  // const objNew = Object.create(
+  //   Object.getPrototypeOf(obj),
+  //   Object.getOwnPropertyDescriptors(obj)
+  // );
+  // const objNew = Object.create(obj);
+  const objNew = {};
+  return Object.assign(objNew, obj);
 }
 
 /**
