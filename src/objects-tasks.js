@@ -128,8 +128,21 @@ function makeImmutable(obj) {
  *    makeWord({ a: [0, 1], b: [2, 3], c: [4, 5] }) => 'aabbcc'
  *    makeWord({ H:[0], e: [1], l: [2, 3, 8], o: [4, 6], W:[5], r:[7], d:[9]}) => 'HelloWorld'
  */
-function makeWord(/* lettersObject */) {
-  throw new Error('Not implemented');
+function makeWord(lettersObject) {
+  // throw new Error('Not implemented');
+
+  const maxIndex = Math.max(...Object.values(lettersObject).flat());
+
+  const resultArray = new Array(maxIndex + 1).fill('');
+
+  Object.keys(lettersObject).forEach((letter) => {
+    const positions = lettersObject[letter];
+    positions.forEach((position) => {
+      resultArray[position] = letter;
+    });
+  });
+
+  return resultArray.join('');
 }
 
 /**
@@ -146,8 +159,26 @@ function makeWord(/* lettersObject */) {
  *    sellTickets([25, 25, 50]) => true
  *    sellTickets([25, 100]) => false (The seller does not have enough money to give change.)
  */
-function sellTickets(/* queue */) {
-  throw new Error('Not implemented');
+function sellTickets(queue) {
+  let sum = 0;
+  let result = 0;
+  // throw new Error('Not implemented');
+  queue.forEach(function (item, index, array) {
+    // ... делать что-то с item
+    sum += item;
+    // console.log(sum)
+    // console.log(array[index+1])
+    // console.log(index)
+    // console.log(25<(array[index+1]-sum))
+    if (array[index + 1] - sum > 25) {
+      result = +1;
+    }
+  });
+
+  if (result > 0) {
+    return false;
+  }
+  return true;
 }
 
 /**
