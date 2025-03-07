@@ -151,13 +151,15 @@ function makeImmutable(obj) {
 function makeWord(lettersObject) {
   // throw new Error('Not implemented');
 
-  const maxIndex = Math.max(...Object.values(lettersObject).flat());
+  const positions = Object.values(lettersObject).flat();
+
+  const maxIndex = positions.length > 0 ? Math.max(...positions) : 0;
 
   const resultArray = new Array(maxIndex + 1).fill('');
 
   Object.keys(lettersObject).forEach((letter) => {
-    const positions = lettersObject[letter];
-    positions.forEach((position) => {
+    const positions2 = lettersObject[letter];
+    positions2.forEach((position) => {
       resultArray[position] = letter;
     });
   });
